@@ -12,7 +12,7 @@ class Calculator {
     }
 
     delete() {
-    this.currentOperand = currentOperand.toString().slice(0, -1); //chops off last number
+    this.currentOperand = this.currentOperand.toString().slice(0, -1); //chops off last number
     }
 
     appendNumber(number) {
@@ -78,7 +78,7 @@ class Calculator {
         this.currentOperandTextElement.innerText = this.getDisplayNumber(this.currentOperand)
         if (this.operation != null) {
             this.previousOperandTextElement.innerText = 
-                `${this.getDisplayNumber(previousOperand)} ${this.operation}`; //shows last number and operand used in the previousOperand
+                `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`; //shows last number and operand used in the previousOperand
         } else {
             this.previousOperandTextElement.innerText = ''
         }
