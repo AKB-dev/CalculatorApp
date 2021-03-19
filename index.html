@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js" type="module"></script>
+
 </head>
 <body>
     <div class="calculator">
         <div class="output">
-            <div data-p-operand class="previous-operand"></div>
-            <div data-c-operand class="current-operand"></div>
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
         </div>
-        <button data-ac class="all-clear span-two">AC</button>
+        <button data-all-clear class="all-clear span-two">AC</button>
         <button data-delete>DEL</button>
 
         <button data-operation>×</button>
@@ -42,5 +42,6 @@
 
         <button data-equals class="equal span-two">=</button>
     </div>
+<script src="app.js" type="module"></script>
 </body>
 </html>
