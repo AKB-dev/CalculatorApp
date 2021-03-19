@@ -16,12 +16,18 @@ class Calculator {
     }
 
     appendNumber(number) {
-        if (number === '.' && this.currentOperand.includes('.')) return;
-        this.currentOperand = this.currentOperand.toString() + number.toString();
+        if (number === '.' && this.currentOperand.includes('.')) return; //checks if theres is alredy a decimal
+        this.currentOperand = this.currentOperand.toString() + number.toString(); // adds numbers to the screen
     }
 
-    choseOperation(operation) {
-
+    chooseOperation(operation) {
+        if (this.currentOperand === '') return;
+        if (this.previousOperand !== '') {
+            this.compute()
+        }
+        this.operation = operation;
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = '';
     }
 
     compute() {
@@ -30,6 +36,7 @@ class Calculator {
 
     updateDisplay() {
         this.currentOperand.innerText = this.currentOperand;
+        this.previousOperand.innerText = this.previousOperand;
     }
 }
 
@@ -50,5 +57,13 @@ numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText);
         calculator.updateDisplay();
+    });
+});
+
+
+operationButtons.forEach(button => {
+    button.addEventListener('click', () =>{
+        calculator.chooseOperation(button.innerText);
+        calculator.updateDisplay;
     });
 });
